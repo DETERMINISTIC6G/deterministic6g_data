@@ -1,0 +1,27 @@
+<histogram><bin low="-inf ms">0</bin>
+<bin low="9.48ms">12</bin>
+<bin low="10.055833333333334ms">8</bin>
+<bin low="10.631666666666668ms">11</bin>
+<bin low="11.2075ms">26</bin>
+<bin low="11.783333333333333ms">79</bin>
+<bin low="12.359166666666667ms">86</bin>
+<bin low="12.935ms">96</bin>
+<bin low="13.510833333333334ms">70</bin>
+<bin low="14.086666666666666ms">98</bin>
+<bin low="14.662500000000001ms">108</bin>
+<bin low="15.238333333333333ms">80</bin>
+<bin low="15.814166666666667ms">78</bin>
+<bin low="16.39ms">62</bin>
+<bin low="16.965833333333332ms">30</bin>
+<bin low="17.541666666666664ms">17</bin>
+<bin low="18.1175ms">6</bin>
+<bin low="18.693333333333335ms">4</bin>
+<bin low="19.269166666666667ms">2</bin>
+<bin low="19.845ms">0</bin>
+<bin low="20.420833333333334ms">1</bin>
+<bin low="20.996666666666666ms">1</bin>
+<bin low="21.572499999999998ms">0</bin>
+<bin low="22.148333333333333ms">0</bin>
+<bin low="22.72416666666667ms">2</bin>
+<bin low="23.3ms">0</bin>
+</histogram>
