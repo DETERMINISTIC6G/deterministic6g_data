@@ -1,0 +1,24 @@
+<histogram>
+    <bin low="-inf ns">0</bin>
+    <bin low="4420.0ns">3</bin>
+    <bin low="4432.0ns">6</bin>
+    <bin low="4444.0ns">13</bin>
+    <bin low="4456.0ns">16</bin>
+    <bin low="4468.0ns">32</bin>
+    <bin low="4480.0ns">62</bin>
+    <bin low="4492.0ns">57</bin>
+    <bin low="4504.0ns">44</bin>
+    <bin low="4516.0ns">115</bin>
+    <bin low="4528.0ns">48</bin>
+    <bin low="4540.0ns">161</bin>
+    <bin low="4552.0ns">57</bin>
+    <bin low="4564.0ns">106</bin>
+    <bin low="4576.0ns">74</bin>
+    <bin low="4588.0ns">43</bin>
+    <bin low="4600.0ns">82</bin>
+    <bin low="4612.0ns">32</bin>
+    <bin low="4624.0ns">25</bin>
+    <bin low="4636.0ns">8</bin>
+    <bin low="4648.0ns">16</bin>
+    <bin low="4660.0ns">0</bin>
+</histogram>
