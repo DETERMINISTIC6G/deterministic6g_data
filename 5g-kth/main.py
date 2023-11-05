@@ -20,6 +20,7 @@ if __name__ == '__main__':
         plt.hist(wall_latencies, bins=bins_wall)
         plt.title(key + " wall")
         plt.xlabel("ms")
+        plt.xlim(0, 14)
         plt.show()
 
         # plt.hist(monotonic_latencies, bins=bins_monotonic)
