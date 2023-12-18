@@ -26,10 +26,8 @@ The following figure shows the setup and how delay was measured:
 
 The environment for this edge cloud data set consists of one edge cloud server in a private edge cloud infrastructure. This edge cloud server is connected to one O-RAN indoor base station connected to a 5G core. The core is also connected to the public Internet where another public cloud server is operating. 
 
-Two mobile devices (smartphones) are communicating through the base station with the private edge cloud server and the public cloud server, respectively. 
-
-ping was used to measure the round-trip delays. iperf servers are executed on the private and public cloud servers. One iperf client was executed on each of the two mobile devices. All devices have synchronized clocks.
- 
+Two mobile devices (smart phones) are communicating through the base station with the private edge cloud server and the public cloud server, respectively.
+The ping tool was used to measure the round-trip delays. All devices have synchronized clocks.
 Further information can be found in the publicly available report of Deliverable D4.1, available from the website of the [DETERMINISTIC6G Project](https://deterministic6g.eu/)
 
 ## Data format
