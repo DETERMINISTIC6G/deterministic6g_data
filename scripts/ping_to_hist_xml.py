@@ -34,8 +34,8 @@ def convert_pingtxt_to_xml(filename: str, out_name: str):
                     raise "Different units not supported by this code yet"
 
     n, bins = np.histogram(times, bins="auto")
-    plt.hist(times, bins=bins)
-    plt.show()
+    # plt.hist(times, bins=bins)
+    # plt.show()
 
     final_rows = np_hist_to_bins(n, bins, lastUnit)
 
@@ -60,4 +60,3 @@ if __name__ == '__main__':
                            "ping-MEC-ORAN-upd.xml")
     convert_pingtxt_to_xml("/home/haugls/OneDriveBwedu/Promotion/MeasurementData/ORAN_MEC/ping-MEC-ORAN.txt",
                            "ping-MEC-ORAN.xml")
-

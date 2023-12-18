@@ -1,6 +1,5 @@
 import numpy as np
 import pandas as pd
-from matplotlib import pyplot as plt
 
 from scripts.hist_writer import np_hist_to_bins, write_bins
 
@@ -34,11 +33,11 @@ if __name__ == '__main__':
     latencies = df_nocross_vlan.latency
 
     n, bins = np.histogram(latencies, bins="auto")
-    plt.ylabel('Sample Count')
-    plt.xlabel('Packet Delay [ns]');
-    plt.title('Packet Delay -- w/o cross traffic, VLAN active');
-    plt.hist(df_nocross_vlan.latency, bins=bins)
-    plt.show()
+    # plt.ylabel('Sample Count')
+    # plt.xlabel('Packet Delay [ns]')
+    # plt.title('Packet Delay -- w/o cross traffic, VLAN active')
+    # plt.hist(df_nocross_vlan.latency, bins=bins)
+    # plt.show()
 
     final_rows = np_hist_to_bins(n, bins, "ns")
     write_bins(final_rows, "df_nocross_vlan.xml")
