@@ -1,7 +1,7 @@
 # Deterministic6G Measurement Data
 
-This repository contains measurement data used by the [DetCom simulator framework](https://github.com/DETERMINISTIC6G/deterministic6g)
-Additionally it contains python scripts to convert the data into a format that can be used by the simulator.
+This repository contains measurement data used by the [DetCom simulator framework](https://github.com/DETERMINISTIC6G/deterministic6g).
+Additionally it contains Python scripts to convert the data into a format that can be used by the simulator.
 
 ## Datsets
 More information about the datasets can be found in the corresponding README.md files in the subdirectories:
