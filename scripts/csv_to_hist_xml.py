@@ -1,6 +1,9 @@
 import csv
 import math
 
+import numpy as np
+from matplotlib import pyplot as plt
+
 from scripts.hist_writer import write_bins
 
 
@@ -12,6 +15,8 @@ def convert_csv_to_xml(filename: str, out_name: str):
         'upper_bound': math.inf
     }]
 
+    counts = []
+    bin_edges = []
     with open(filename) as csvfile:
         reader = csv.reader(csvfile, delimiter=',')
         # Skip the header
@@ -23,6 +28,8 @@ def convert_csv_to_xml(filename: str, out_name: str):
                 'lower_bound': str(float(row[2])) + "us",
                 'upper_bound': str(float(row[3])) + "us"
             })
+            counts += [int(row[0])]
+            bin_edges += [float(row[2])]
 
     final_rows[0]['upper_bound'] = final_rows[1]['lower_bound']
     final_rows.append({
@@ -30,6 +37,13 @@ def convert_csv_to_xml(filename: str, out_name: str):
         'lower_bound': final_rows[-1]['upper_bound'],
         'upper_bound': math.inf
     })
+
+    # Plot the histogram
+    # plt.hist(bin_edges, weights=counts, bins=bin_edges)
+    # plt.grid()
+    # plt.xlabel("t in us")
+    # plt.ylabel("count")
+    # plt.show()
 
     write_bins(final_rows, out_name)
 
