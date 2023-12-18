@@ -40,23 +40,3 @@ def convert_pingtxt_to_xml(filename: str, out_name: str):
     final_rows = np_hist_to_bins(n, bins, lastUnit)
 
     write_bins(final_rows, out_name)
-
-
-if __name__ == '__main__':
-    convert_pingtxt_to_xml("/home/haugls/OneDriveBwedu/Promotion/MeasurementData/mmWave_delay/ping-cloud-cmWave.txt",
-                           "ping-cloud-cmWave.xml")
-    convert_pingtxt_to_xml("/home/haugls/OneDriveBwedu/Promotion/MeasurementData/mmWave_delay/ping-cloud-mmWave.txt",
-                           "ping-cloud-mmWave.xml")
-    convert_pingtxt_to_xml("/home/haugls/OneDriveBwedu/Promotion/MeasurementData/mmWave_delay/ping-MEC-cmWave.txt",
-                           "ping-MEC-cmWave.xml")
-
-    convert_pingtxt_to_xml("/home/haugls/OneDriveBwedu/Promotion/MeasurementData/ORAN_MEC/ping_results_MEC_ORAN.txt",
-                           "ping_results_MEC_ORAN.xml")
-    convert_pingtxt_to_xml("/home/haugls/OneDriveBwedu/Promotion/MeasurementData/ORAN_MEC/ping-cloud-ORAN-upd.txt",
-                           "ping-cloud-ORAN-upd.xml")
-    convert_pingtxt_to_xml("/home/haugls/OneDriveBwedu/Promotion/MeasurementData/ORAN_MEC/ping-cloud-ORAN.txt",
-                           "ping-cloud-ORAN.xml")
-    convert_pingtxt_to_xml("/home/haugls/OneDriveBwedu/Promotion/MeasurementData/ORAN_MEC/ping-MEC-ORAN-upd.txt",
-                           "ping-MEC-ORAN-upd.xml")
-    convert_pingtxt_to_xml("/home/haugls/OneDriveBwedu/Promotion/MeasurementData/ORAN_MEC/ping-MEC-ORAN.txt",
-                           "ping-MEC-ORAN.xml")
