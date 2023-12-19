@@ -17,7 +17,7 @@ DETERMINISTIC6G e-mail: coordinator@deterministic6g.eu
 The data set is licensed under the [CC BY-ND 4.0 license](../LICENSE-CC-BY-ND.md).
 
 If you use this data set in your published work, please cite the following report:
-J. Ansari, J. Sachs, Contribution of 5G Packet Delay Data Set “PD-Wireless-5G-2a”, in DETERMINISTIC6G deliverable D4.1, “Digest on First DetCom Simulator Framework Release,” December 2024, DOI: please add correct DOI 
+J. Ansari, J. Sachs, Contribution of 5G Packet Delay Data Set “PD-Wireless-5G-2a”, in DETERMINISTIC6G deliverable D4.1, “Digest on First DetCom Simulator Framework Release,” December 2024
 
 ## Description of the measured data
 
