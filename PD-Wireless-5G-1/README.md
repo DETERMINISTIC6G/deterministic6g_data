@@ -29,7 +29,7 @@ Each session corresponds to a combination of direction (uplink or downlink), UE 
 
 
 ## Data format
-This raw data can be found under this DOI: [10.5281/zenodo.10390211](https://doi.org/10.5281/zenodo.10390211)
+The raw data can be found under this DOI: [10.5281/zenodo.10390211](https://doi.org/10.5281/zenodo.10390211)
 
 The [main.py](main.py) script processes downloads and converts the raw data to a Histogram which can be user by the OMNeT++ simulation framework.
 
