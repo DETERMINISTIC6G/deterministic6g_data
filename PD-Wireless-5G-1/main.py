@@ -3,8 +3,9 @@ import requests
 import zipfile
 import os
 
-from scripts.hist_writer import np_hist_to_bins, write_bins
+from scripts.hist_writer import np_hist_to_bins, write_bins, write_traces
 from scripts.read_parquets import get_combined_df_from_parquets
+import matplotlib.pyplot as plt
 
 import urllib.request
 
@@ -67,15 +68,25 @@ def main():
         # n_monotonic, bins_monotonic = np.histogram(monotonic_latencies, bins="auto")
 
         # plt.hist(wall_latencies, bins=bins_wall)
-        # if key == "s10-DL":
-        #    plt.title("Downlink")
-        # elif key == "s1":
-        #    plt.title("Uplink")
-        # plt.xlabel("t in ms")
-        # plt.ylabel("count")
-        # plt.xlim(0, 14)
+        # plt.gcf().set_figwidth(6.4)
+        # plt.gcf().set_figheight(4.8)
+        # plt.title(key)
+        # #if key == "s10-DL":
+        #    # plt.title("Downlink")
+        # # elif key == "s1":
+        # #    plt.title("Uplink")
+        # #plt.xlabel("t in ms")
+        # #plt.ylabel("count")
+        #
+        # plt.xlim(0,14)
         # plt.grid()
+        # plt.xlabel("delay [us]")
+        # plt.ylabel("sample count")
+        # print(f"Default figure size: {plt.rcParams['figure.figsize']} inches")
+        # plt.savefig(f'{tmp_dir}/{key}.png')
         # plt.show()
+
+
 
         # plt.hist(monotonic_latencies, bins=bins_monotonic)
         # plt.title(key + " monotonic")
@@ -86,7 +97,9 @@ def main():
         # rows_monotonic = np_hist_to_bins(n_monotonic, bins_monotonic, "ms")
 
         write_bins(rows_wall, key + "_wall.xml")
-        # write_bins(rows_monotonic, key + "_monotonic.xml")
+        write_traces(wall_latencies, out_name = key + "_trace.csv")
+        write_traces(wall_latencies, value["timestamps.client.send.wall"], key + "_trace_timestamped.csv")
+        # write_bins(rows_monotonic, key + ".xml")
 
 
 if __name__ == '__main__':

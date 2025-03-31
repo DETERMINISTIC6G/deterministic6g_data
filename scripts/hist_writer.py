@@ -42,3 +42,18 @@ def write_bins(final_rows, out_name):
     with open(out_name, 'w') as xmlfile:
         xmlfile.write(xml)
     print(out_name)
+
+def write_traces(delays, timestamps=None, out_name=None):
+    initial_timestamp = 0
+    if timestamps is not None:
+        initial_timestamp = timestamps[0]
+
+    with open(out_name, 'w') as f:
+        if timestamps is not None:
+            for i in range(len(delays)):
+                timestamp_to_add = timestamps[i] - initial_timestamp
+                f.write(f"{delays[i]}ms,{timestamp_to_add}ns\n")
+        else:
+            for i in range(len(delays)):
+                f.write(f"{delays[i]}ms\n")
+    print(out_name)
