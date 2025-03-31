@@ -98,7 +98,7 @@ def main():
 
         write_bins(rows_wall, key + "_wall.xml")
         write_traces(wall_latencies, out_name = key + "_trace.csv")
-        write_traces(wall_latencies, value["timestamps.client.send.wall"], key + "_trace_timestamped.csv")
+        write_traces(wall_latencies, value["timestamps.client.send.monotonic"], key + "_trace_timestamped.csv")
         # write_bins(rows_monotonic, key + ".xml")
 
 
