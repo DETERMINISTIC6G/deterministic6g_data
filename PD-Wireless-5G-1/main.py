@@ -71,14 +71,14 @@ def main():
         # plt.gcf().set_figwidth(6.4)
         # plt.gcf().set_figheight(4.8)
         # plt.title(key)
-        # #if key == "s10-DL":
-        #    # plt.title("Downlink")
-        # # elif key == "s1":
-        # #    plt.title("Uplink")
-        # #plt.xlabel("t in ms")
-        # #plt.ylabel("count")
+        # if key == "s10-DL":
+        #    plt.title("Downlink")
+        # elif key == "s1-UL":
+        #    plt.title("Uplink")
+        # plt.xlabel("t in ms")
+        # plt.ylabel("count")
         #
-        # plt.xlim(0,14)
+        # plt.xlim(0,15)
         # plt.grid()
         # plt.xlabel("delay [us]")
         # plt.ylabel("sample count")
@@ -89,9 +89,9 @@ def main():
 
 
         # plt.hist(monotonic_latencies, bins=bins_monotonic)
-        # plt.title(key + " monotonic")
-        # plt.xlabel("ms")
-        # plt.show()
+        #plt.title(key + " monotonic")
+        #plt.xlabel("ms")
+        #plt.show()
 
         rows_wall = np_hist_to_bins(n_wall, bins_wall, "ms")
         # rows_monotonic = np_hist_to_bins(n_monotonic, bins_monotonic, "ms")
