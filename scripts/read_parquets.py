@@ -19,7 +19,7 @@ def get_combined_df_from_parquets(parent_directory, subdirectories):
         for i, df in enumerate(dataframes):
             df['parquet_file'] = file_names[i]
 
-        combined_df = pd.concat(dataframes, ignore_index=True)
+        combined_df = pd.concat(dataframes, ignore_index=True).sort_values(by='timestamps.client.send.wall')
         # Calculate wall latency (timestamps.client.send.wall - timestamps.server.receive.wall)
         combined_df['wall_latency'] = (combined_df['timestamps.server.receive.wall'] - combined_df[
             'timestamps.client.send.wall']) / 1e6
