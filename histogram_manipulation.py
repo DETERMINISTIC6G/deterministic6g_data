@@ -42,7 +42,7 @@ def modify_histogram(data, total_count, pattern, pdc, vslot, name, savefig, show
         print(f"Bounds \t [{data[1][0]}, {data[-1][0]}]")
 
     if pdc > 0:
-        plt.bar([d[0] for d in data[1:]], [d[1] for d in data[1:]], width=bin_size)
+        plt.bar([d[0] for d in data[1:]], [d[1] for d in data[1:]], width=bin_size, label="Input")
         k = 0
         while k / total_count < pdc and len(data) >= 2:
             k += data[1][1]
@@ -82,13 +82,12 @@ def modify_histogram(data, total_count, pattern, pdc, vslot, name, savefig, show
         print("99.99% \t", reliability(data, total_count, 0.9999))
         print(f"Bounds \t [{data[1][0]}, {data[-1][0]}]")
 
-    plt.bar([d[0] for d in data[1:]], [d[1] for d in data[1:]], width=bin_size)
-    plt.xlabel("delay in ms")
+    plt.bar([d[0] for d in data[1:]], [d[1] for d in data[1:]], width=bin_size, label="Output")
+    plt.legend()
+    plt.xlabel("delay [ms]")
     plt.ylabel("count")
 
-    plt.ylim(0, 15000000000)
-    if showfig:
-        plt.show()
+    plt.ylim(0,15000000000)
 
     if savefig:
         plt.savefig(f"{name}.png")
@@ -116,6 +115,9 @@ def modify_histogram(data, total_count, pattern, pdc, vslot, name, savefig, show
             [d[1] for d in data[1:-1]], [d[0] for d in data[1:]], "ms"
         )
         write_bins(xml_data, f"{name}.xml")
+
+    if showfig:
+        plt.show()
 
 
 def read_histogram(hist):
