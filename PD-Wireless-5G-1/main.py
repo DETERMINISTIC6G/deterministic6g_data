@@ -5,6 +5,7 @@ import os
 
 from scripts.hist_writer import np_hist_to_bins, write_bins, write_traces
 from scripts.read_parquets import get_combined_df_from_parquets
+from histogram_manipulation import modify_histogram, prepare_modify_histogram
 import matplotlib.pyplot as plt
 
 import urllib.request
@@ -86,8 +87,6 @@ def main():
         # plt.savefig(f'{tmp_dir}/{key}.png')
         # plt.show()
 
-
-
         # plt.hist(monotonic_latencies, bins=bins_monotonic)
         #plt.title(key + " monotonic")
         #plt.xlabel("ms")
@@ -96,11 +95,17 @@ def main():
         rows_wall = np_hist_to_bins(n_wall, bins_wall, "ms")
         # rows_monotonic = np_hist_to_bins(n_monotonic, bins_monotonic, "ms")
 
-        write_bins(rows_wall, key + "_wall.xml")
-        write_traces(wall_latencies, out_name = key + "_trace.csv")
-        write_traces(wall_latencies, value["timestamps.client.send.monotonic"], key + "_trace_timestamped.csv")
-        # write_bins(rows_monotonic, key + ".xml")
+        # Write normal histograms
+        hist_out_name = key + "_wall.xml"
+        write_bins(rows_wall, hist_out_name)
 
+        # Write traces for DelayReplayer
+        write_traces(wall_latencies, out_name=key + "_trace.csv")
+        write_traces(wall_latencies, value["timestamps.client.send.monotonic"], key + "_trace_timestamped.csv")
+
+        # Write shifted histograms for dynamic scenario showcase
+        prepare_modify_histogram(hist_out_name, shift=1.0, savefig=True)
+        prepare_modify_histogram(hist_out_name, shift=-1.0, savefig=True)
 
 if __name__ == '__main__':
     main()

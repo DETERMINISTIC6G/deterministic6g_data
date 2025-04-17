@@ -86,7 +86,7 @@ def modify_histogram(data, total_count, pattern, pdc, vslot, name, savefig, show
     plt.xlabel("delay in ms")
     plt.ylabel("count")
 
-    plt.ylim(0,15000000000)
+    plt.ylim(0, 15000000000)
     if showfig:
         plt.show()
 
@@ -99,7 +99,7 @@ def modify_histogram(data, total_count, pattern, pdc, vslot, name, savefig, show
                 {
                     "count": data[i][1],
                     "lower_bound": f"{data[i][0]} ms",
-                    "upper_bound": f"{data[i+1][0]} ms",
+                    "upper_bound": f"{data[i + 1][0]} ms",
                 }
                 for i in range(len(data) - 1)
             ],
@@ -153,6 +153,57 @@ def read_histogram(hist):
         raise ValueError("Invalid filetype for histogram.")
 
 
+def prepare_modify_histogram(hist, shift=0, deviation=0, skew=1 / 2, mirror=False, pdc=0, vslot=0, out=".", name="",
+                             savefig=False, showfig=False):
+    data, total_count = read_histogram(hist)
+
+    bin_size = get_bin_size(data)
+    s = 2 * round(shift / bin_size)
+    N = 2 * deviation
+    p = skew
+    pattern = np.zeros(abs(s) + N + 1)
+
+    if not mirror:
+        if s <= 0:
+            pattern[: N + 1] = (
+                [binom(N, k) * p ** k * (1 - p) ** (N - k) for k in range(N + 1)]
+                if N > 1
+                else [1]
+            )
+        else:
+            pattern[s:] = (
+                [binom(N, k) * p ** k * (1 - p) ** (N - k) for k in range(N + 1)]
+                if N > 1
+                else [1]
+            )
+    else:
+        pattern[s:] = (
+            [p * binom(N, k) * p ** k * (1 - p) ** (N - k) for k in range(N + 1)]
+            if N > 1
+            else [1]
+        )
+        pattern[: N + 1] = (
+            [(1 - p) * binom(N, k) * p ** k * (1 - p) ** (N - k) for k in range(N + 1)]
+            if N > 1
+            else [1]
+        )
+
+    modify_histogram(
+        data,
+        total_count,
+        pattern,
+        pdc,
+        vslot,
+        (
+            f"{out}/{hist.split('/')[-1].split('.')[0]}_conv_{shift}_{deviation}_{round(skew * 100)}"
+            if name == ""
+            else f"{out}/{name}"
+        ),
+        savefig,
+        showfig,
+    )
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="Manipulate histogram by binomial convolution."
@@ -172,53 +223,8 @@ def main():
     parser.add_argument("-show", "--showfig", action="store_true")
     args = parser.parse_args()
 
-    data, total_count = read_histogram(args.hist)
-
-    bin_size = get_bin_size(data)
-    s = 2 * round(args.shift / bin_size)
-    N = 2 * args.deviation
-    p = args.skew
-    pattern = np.zeros(abs(s) + N + 1)
-
-    if not args.mirror:
-        if s <= 0:
-            pattern[: N + 1] = (
-                [binom(N, k) * p**k * (1 - p) ** (N - k) for k in range(N + 1)]
-                if N > 1
-                else [1]
-            )
-        else:
-            pattern[s:] = (
-                [binom(N, k) * p**k * (1 - p) ** (N - k) for k in range(N + 1)]
-                if N > 1
-                else [1]
-            )
-    else:
-        pattern[s:] = (
-            [p * binom(N, k) * p**k * (1 - p) ** (N - k) for k in range(N + 1)]
-            if N > 1
-            else [1]
-        )
-        pattern[: N + 1] = (
-            [(1 - p) * binom(N, k) * p**k * (1 - p) ** (N - k) for k in range(N + 1)]
-            if N > 1
-            else [1]
-        )
-
-    modify_histogram(
-        data,
-        total_count,
-        pattern,
-        args.pdc,
-        args.vslot,
-        (
-            f"{args.out}/{args.hist.split('/')[-1].split('.')[0]}_conv_{args.shift}_{args.deviation}_{round(args.skew*100)}"
-            if args.name == ""
-            else f"{args.out}/{args.name}"
-        ),
-        args.savefig,
-        args.showfig,
-    )
+    prepare_modify_histogram(args.hist, args.shift, args.deviation, args.skew, args.mirror, args.pdc, args.vslot,
+                             args.out, args.name, args.savefig, args.showfig)
 
 
 if __name__ == "__main__":
