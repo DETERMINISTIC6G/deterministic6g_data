@@ -68,6 +68,7 @@ def main():
         n_wall, bins_wall = np.histogram(wall_latencies, bins="auto")
         # n_monotonic, bins_monotonic = np.histogram(monotonic_latencies, bins="auto")
 
+        plt.figure()
         plt.hist(wall_latencies, bins=bins_wall)
         plt.gcf().set_figwidth(6.4)
         plt.gcf().set_figheight(4.8)
@@ -81,7 +82,7 @@ def main():
 
         plt.xlim(0,15)
         plt.grid()
-        plt.xlabel("delay [us]")
+        plt.xlabel("delay [ms]")
         plt.ylabel("sample count")
         print(f"Default figure size: {plt.rcParams['figure.figsize']} inches")
         plt.savefig(f'{tmp_dir}/{key}.png')
