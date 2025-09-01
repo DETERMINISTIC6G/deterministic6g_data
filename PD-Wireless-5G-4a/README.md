@@ -1,4 +1,4 @@
-# PD-Wireless-5G-3a
+# PD-Wireless-5G-4a
 
 The data set in this repository provides packet delay data of a wireless TSN bridge based on measurements from a 5G testbed implementing standardized functionality for ultra-reliable and low latency communication in an industrial research shopfloor.
 
@@ -16,16 +16,20 @@ DETERMINISTIC6G e-mail: coordinator@deterministic6g.eu
 
 The data set is licensed under the [CC BY-ND 4.0 license](../LICENSE-CC-BY-ND.md).
 
-If you use this data set in your published work, please cite the following paper:
-
-J. Ansari, C. Andersson, P. de Bruin, J. Farkas, L. Grosjean, J. Sachs, J. Torsner, B. Varga, D. Harutyunyan, N. König, R. H. Schmitt: Performance of 5G Trials for Industrial Automation. Electronics, 11(3):412, 2022, DOI: 10.3390/electronics11030412
-
 # Description of the measured data
 
-The data set described the packet delay (PD) of a wireless TSN bridge based on measurements from a 5G testbed in an industrial research shopfloor. The 5G testbed corresponds to a pre-commercial 5G URLLC standalone prototype network with 100 MHz carrier bandwidth operating in the 28 GHz band; it implements 5G standardized functionality for ultra-reliable and low latency communication [\[AVK+22\]](#references).
-The trial network is deployed at the 5G Industry Campus Europe in Aachen Germany. The network setup and the measurement methodology are further described in [\[AAB+22\]](#references) and in [\[AVK+22\]](#references).
-Two histogram data sets have been derived from measurements in the trial network, one measurement for downlink and one measurement for uplink. The measurements are made for periodic UDP messages with 32 bytes payload that are transmitted every 7 ms.
- 
+The 5G testbed corresponds to a 5G standalone trial network with 800 MHz carrier bandwidth consisting of 8 component
+carriers of 100 MHz each in the frequency range 26.7 GHz to 27.5 GHz.
+It is deployed at the 5G Industry Campus Europe in Aachen Germany.
+The network setup and the measurement methodology are further described in [[BAO+25]](https://doi.org/10.3390/electronics14030607).
+Two histogram data sets are derived from measurements in the trial network, one measurement for downlink
+(from a controller to a mobile device over the 5G network, see Figure 10)
+and one measurement for uplink
+(from the mobile device over 5G to the controller, see Figure 11).
+The measurements are made for periodic PROFINET messages of 100 bytes size that are transmitted every 10 ms;
+the analyzed data sets contain 100000 samples.
+The results are aligned with related measurement conducted in the TARGET-X project  as described in [[TAR25-D65]](https://target-x.eu/deliverables/) [[BAO+25]](https://doi.org/10.3390/electronics14030607). 
+
 Further information can be found in the publicly available report of Deliverable D4.1, available from the website of the [DETERMINISTIC6G Project](https://deterministic6g.eu/)
 
 # Data format
