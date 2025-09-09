@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches: [ main ]
+  release:
+    types: [created]
 
 jobs:
   build:
@@ -31,8 +35,23 @@ jobs:
           fi
         done
 
+    - name: Package XML files
+      run: zip release-artifacts.zip **/*.xml
+
     - name: Upload XML artifacts
+      if: github.event_name != 'release'
       uses: actions/upload-artifact@v4
       with:
         name: generated-xml-files
         path: '**/*.xml'
+
+    - name: Upload Release Asset
+      if: github.event_name == 'release'
+      uses: actions/upload-release-asset@v1
+      with:
+        upload_url: ${{ github.event.release.upload_url }}
+        asset_path: ./release-artifacts.zip
+        asset_name: release-artifacts.zip
+        asset_content_type: application/zip
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
