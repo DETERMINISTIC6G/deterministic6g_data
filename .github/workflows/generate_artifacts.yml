@@ -38,7 +38,7 @@ jobs:
         done
 
     - name: Package XML files
-      run: zip histograms_for_omnetpp.zip **/*.xml README.md **/*_trace.csv **/*.md
+      run: zip histograms_for_omnetpp.zip **/*.xml **/*_trace.csv **.md **/*.md
 
     - name: Upload XML artifacts
       if: github.event_name != 'release'
