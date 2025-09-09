@@ -7,7 +7,7 @@ on:
   pull_request:
     branches: [ main ]
   release:
-    types: [published, prereleased]
+    types: [published]
 
 jobs:
   build:
