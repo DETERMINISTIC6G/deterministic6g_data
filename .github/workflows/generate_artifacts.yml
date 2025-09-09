@@ -1,0 +1,38 @@
+name: Generate Artifacts
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+
+    - name: Run main.py scripts
+      run: |
+        for main_script in $(find . -type f -name "main.py"); do
+          dir=$(dirname "$main_script")
+          # Exclude root main.py if it exists, and scripts folder
+          if [ "$dir" != "." ] && [ "$dir" != "./scripts" ]; then
+            echo "Running main.py in $dir"
+            (cd "$dir" && PYTHONPATH=.. python main.py)
+          fi
+        done
+
+    - name: Upload XML artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: generated-xml-files
+        path: '**/*.xml'
