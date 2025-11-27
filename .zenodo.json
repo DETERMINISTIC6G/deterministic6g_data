@@ -1,0 +1,62 @@
+{
+  "creators": [
+    {
+      "name": "Haug, Lucas",
+      "orcid": "0000-0002-1825-0097",
+      "affiliation": "University of Stuttgart"
+    },
+    {
+      "name": "Dürr, Frank",
+      "orcid": "0000-0002-3470-7712",
+      "affiliation": "University of Stuttgart"
+    },
+    {
+      "name": "Mostafavi, Seyed Samie",
+      "orcid": "0000-0001-9316-0414",
+      "affiliation": "KTH Royal Institute of Technology"
+    },
+    {
+      "name": "Sharma, Gourav Prateek",
+      "orcid": "0000-0002-6328-0113",
+      "affiliation": "KTH Royal Institute of Technology"
+    },
+    {
+      "name": "Sachs, Joachim",
+      "orcid": "0000-0001-8398-7741",
+      "affiliation": "Ericsson (Germany)"
+    },
+    {
+      "name": "Harmatos, Janos",
+      "orcid": "0000-0001-9786-4371",
+      "affiliation": "Ericsson (Hungary)"
+    },
+    {
+      "name": "Costa-Requena, Jose",
+      "orcid": "0000-0001-8775-3707",
+      "affiliation": "Cumucore Oy"
+    },
+    {
+      "name": "Ansari, Junaid",
+      "affiliation": "Ericsson (Germany)"
+    }
+  ],
+  "contributors": [],
+  "title": "DETERMINISTIC6G Latency Measurement Datasets",
+  "version": "v3.0",
+  "access_right": "open",
+  "related_identifiers": [],
+  "keywords": [],
+  "license": "cc-by-nd-4.0",
+  "upload_type": "software",
+  "language": "eng",
+  "grants": [
+    {
+      "id": "101096504"
+    }
+  ],
+  "communities": [
+    {
+      "identifier": "deterministic6g"
+    }
+  ]
+}
